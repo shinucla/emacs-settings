@@ -4,7 +4,7 @@
 ;;     open .emacs in a buffer
 ;;     M-x eval-buffer
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes") 
-(load-theme 'ample t)
+(load-theme 'afternoon t)
 
 (load-file "~/emacs/typescript-mode.el")
 (load-file "~/emacs/json-reformat.el")
