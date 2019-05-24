@@ -3,11 +3,11 @@
 ;; load .emacs without restart emacs:
 ;;     open .emacs in a buffer
 ;;     M-x eval-buffer
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes") 
+(add-to-list 'custom-theme-load-path "~/emacs-settings/themes") 
 (load-theme 'afternoon t)
 
-(load-file "~/emacs/typescript-mode.el")
-(load-file "~/emacs/json-reformat.el")
+(load-file "~/emacs-settings/lib/typescript-mode.el")
+(load-file "~/emacs-settings/lib/json-reformat.el")
 (setq text-mode-hook '(lambda () (auto-fill-mode -1)))
 
 (menu-bar-mode 0)
