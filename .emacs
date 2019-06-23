@@ -3,22 +3,33 @@
 ;; load .emacs without restart emacs:
 ;;     open .emacs in a buffer
 ;;     M-x eval-buffer
-(add-to-list 'custom-theme-load-path "~/emacs-settings/themes") 
-(load-theme 'afternoon t)
+
+(package-initialize)
 
 (load-file "~/emacs-settings/lib/typescript-mode.el")
 (load-file "~/emacs-settings/lib/json-reformat.el")
-(setq text-mode-hook '(lambda () (auto-fill-mode -1)))
+(load-file "~/emacs-settings/lib/git.el") (require 'git)
+(load-file "~/emacs-settings/lib/json.el") (require 'json)
 
-(menu-bar-mode 0)
-(tool-bar-mode -1)
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.sass\\'" . css-mode))
+(add-to-list 'custom-theme-load-path "~/emacs-settings/themes") 
+;(load-theme 'afternoon t)
+(load-theme 'subatomic256 t)
+
+; (menu-bar-mode 0)
+; (tool-bar-mode -1)
 (auto-fill-mode -1)
 
 (set-face-attribute 'default nil :height 80)
 (setq-default indent-tabs-mode t)
+(setq text-mode-hook '(lambda () (auto-fill-mode -1)))
+(setq typescript-indent-level 2)
 (setq c-basic-offset 2)
 (setq css-indent-offset 2)
 (setq js-indent-level 2)
+
 (add-hook 'java-mode-hook (lambda ()
 			    (setq c-basic-offset 2)))
 (add-hook 'java-mode-hook (lambda ()
@@ -90,10 +101,6 @@
 
     (insert (concat "\n" (replace-regexp-in-string "," ", " (concat getters "\n" setters))))))
 
-(defun seek ()
-  (interactive)
-  (find-file "~/projects/seek-daedalus/trunk"))
-
 (put 'erase-buffer 'disabled nil)
 
 (defun compile-using-pipe ()
@@ -116,8 +123,9 @@
   (forward-line -1)
   (indent-according-to-mode))
 
-
-(global-set-key [(control shift up)]  'move-line-up)
-(global-set-key [(control shift down)]  'move-line-down)
+(define-key input-decode-map "\e\eOA" [(meta up)])
+(define-key input-decode-map "\e\eOB" [(meta down)])
+(global-set-key [(meta up)]  'move-line-up)
+(global-set-key [(meta down)]  'move-line-down)
 (global-set-key "\C-\\" 'compile-using-pipe)
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
