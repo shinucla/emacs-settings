@@ -15,8 +15,8 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.sass\\'" . css-mode))
 (add-to-list 'custom-theme-load-path "~/emacs-settings/themes") 
-;(load-theme 'afternoon t)
-(load-theme 'subatomic256 t)
+(load-theme 'afternoon t)
+;(load-theme 'subatomic256 t)
 
 ; (menu-bar-mode 0)
 ; (tool-bar-mode -1)
