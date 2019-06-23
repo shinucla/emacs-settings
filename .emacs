@@ -46,7 +46,6 @@
   (setq code result)
   )
 
-
 (defun iwb ()
   "indent whole buffer"
   (interactive)
@@ -91,8 +90,6 @@
 
     (insert (concat "\n" (replace-regexp-in-string "," ", " (concat getters "\n" setters))))))
 
-
-
 (defun seek ()
   (interactive)
   (find-file "~/projects/seek-daedalus/trunk"))
@@ -104,5 +101,23 @@
   (let ((process-connection-type nil))
     (call-interactively 'compile)))
 
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+
+(global-set-key [(control shift up)]  'move-line-up)
+(global-set-key [(control shift down)]  'move-line-down)
 (global-set-key "\C-\\" 'compile-using-pipe)
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
