@@ -8,7 +8,7 @@
 ;; (add-to-list 'package-archives
 ;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;; or
-;; (setq package-archives '(("gnu", "https://elpa.gnu.org/packages") ))
+;; (setq package-archives '(("gnu", "https://elpa.gnu.org/packages")
 ;;                         ("melpa", "https://stable.melpa.org/packages/")
 ;;                         ))
 ;; M-x package-refresh-contents
