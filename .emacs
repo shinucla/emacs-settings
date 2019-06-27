@@ -1,8 +1,21 @@
 ;;(add-to-list 'load-path "~/.emacs.d")
+;;
 ;; use "TERM=xterm-256color emacs -nw" in terminal to launch emacs
 ;; load .emacs without restart emacs:
 ;;     open .emacs in a buffer
 ;;     M-x eval-buffer
+;;
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; or
+;; (setq package-archives '(("gnu", "https://elpa.gnu.org/packages") ))
+;;                         ("melpa", "https://stable.melpa.org/packages/")
+;;                         ))
+;; M-x package-refresh-contents
+;; M-x package-install RET js2-mode RET
+;; M-x package-install RET rjsx-mode RET
+;;
+;;
 
 (package-initialize)
 
@@ -11,6 +24,8 @@
 (load-file "~/emacs-settings/lib/git.el") (require 'git)
 (load-file "~/emacs-settings/lib/json.el") (require 'json)
 
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.sass\\'" . css-mode))
@@ -29,6 +44,7 @@
 (setq c-basic-offset 2)
 (setq css-indent-offset 2)
 (setq js-indent-level 2)
+
 
 (add-hook 'java-mode-hook (lambda ()
 			    (setq c-basic-offset 2)))
