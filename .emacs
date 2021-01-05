@@ -37,8 +37,8 @@ There are two things you can do about this warning:
 (load-file "~/emacs-settings/lib/json-reformat.el")
 (load-file "~/emacs-settings/lib/git.el") (require 'git)
 (load-file "~/emacs-settings/lib/json.el") (require 'json)
-(load-file "~/emacs-settings/lib/lib/web-mode.el")
 (load-file "~/emacs-settings/lib/csv-mode.el")
+(load-file "~/emacs-settings/lib/lib/web-mode.el")
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
