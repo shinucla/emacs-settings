@@ -37,6 +37,7 @@ There are two things you can do about this warning:
 (load-file "~/emacs-settings/lib/json-reformat.el")
 (load-file "~/emacs-settings/lib/git.el") (require 'git)
 (load-file "~/emacs-settings/lib/json.el") (require 'json)
+(load-file "~/emacs-settings/lib/lib/web-mode.el")
 (load-file "~/emacs-settings/lib/csv-mode.el")
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
@@ -45,6 +46,17 @@ There are two things you can do about this warning:
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.sass\\'" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+
+(add-hook 'web-mode-hook
+	  (lambda ()
+	    (setq web-mode-markup-indent-offset 2)
+	    (setq web-mode-css-indent-offset 2)
+	    (setq web-mode-code-indent-offset 2)
+	    (setq web-mode-indent-style 2)
+	    (setq web-mode-enable-current-element-highlight t)
+	    ))
+
 (add-to-list 'custom-theme-load-path "~/emacs-settings/themes") 
 (load-theme 'afternoon t)
 ;(load-theme 'subatomic256 t)
