@@ -36,6 +36,7 @@ There are two things you can do about this warning:
 (load-file "~/emacs-settings/lib/typescript-mode.el")
 (load-file "~/emacs-settings/lib/json-reformat.el")
 (load-file "~/emacs-settings/lib/git.el") (require 'git)
+(load-file "~/emacs-settings/lib/git-blame.el") (require 'git-blame)
 (load-file "~/emacs-settings/lib/json.el") (require 'json)
 (load-file "~/emacs-settings/lib/csv-mode.el")
 (load-file "~/emacs-settings/lib/web-mode.el")
