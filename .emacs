@@ -174,3 +174,20 @@ There are two things you can do about this warning:
 (global-set-key [(meta down)]  'move-line-down)
 (global-set-key "\C-\\" 'compile-using-pipe)
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
+
+
+;; Update font size and git-diff mode colorings
+(set-face-attribute 'default nil :height 80)
+(with-eval-after-load 'diff-mode
+  (setq diff-refine 'font-lock)
+  (set-face-attribute 'diff-removed nil :background "#5f0000" :foreground "#bbbbbb" :extend t)
+  (set-face-attribute 'diff-added nil :background "#005f5f" :foreground "#eeeeee" :extend t)
+  (set-face-attribute
+   'diff-indicator-removed nil :foreground "#ffffff" :background 'unspecified :inherit 'diff-removed)
+  (set-face-attribute
+   'diff-indicator-added nil :foreground "#44ff44" :background 'unspecified :inherit 'diff-added)
+
+  ;;(setq diff-refine nil) -- to disable following change highlights
+  (set-face-attribute 'diff-refine-added nil :background "#0000ff" :foreground "#50afaf" :inherit nil)
+  (set-face-attribute 'diff-refine-removed nil :background "#ff0000" :foreground "#afaf50" :inherit nil)
+  )
