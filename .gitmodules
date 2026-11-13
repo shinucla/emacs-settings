@@ -1,0 +1,3 @@
+[submodule "copilot_el"]
+	path = copilot_el
+	url = git@github-shin:copilot-emacs/copilot.el.git
